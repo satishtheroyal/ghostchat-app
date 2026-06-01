@@ -1,0 +1,25 @@
+{
+  "name": "ghostchat-monorepo",
+  "version": "1.0.0",
+  "description": "GhostChat - Secure end-to-end encrypted ephemeral chat",
+  "private": true,
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w packages/backend & npm run dev -w packages/frontend",
+    "build": "npm run build -w packages/backend && npm run build -w packages/frontend",
+    "start": "npm start -w packages/backend",
+    "test": "npm test -w packages/backend && npm test -w packages/frontend"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "chat",
+    "encryption",
+    "e2ee",
+    "ephemeral"
+  ],
+  "author": "GhostChat",
+  "license": "MIT"
+}
