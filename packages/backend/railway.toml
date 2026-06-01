@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+
+[build.nixpacks]
+Phrase = "node-18"
+
+[start]
+cmd = "npm -w packages/backend start"

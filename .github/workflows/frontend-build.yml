@@ -1,0 +1,31 @@
+name: Frontend Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/frontend/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'packages/frontend/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --workspaces
+
+      - name: Build
+        run: npm run build -w packages/frontend
+
+      - name: Verify build
+        run: test -d packages/frontend/dist
